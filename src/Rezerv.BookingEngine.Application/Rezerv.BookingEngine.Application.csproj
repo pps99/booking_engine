@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Rezerv.BookingEngine.Domain/Rezerv.BookingEngine.Domain.csproj" />
+  </ItemGroup>
+</Project>
+

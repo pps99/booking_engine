@@ -1,0 +1,49 @@
+@baseUrl = http://localhost:5080
+
+### Health
+GET {{baseUrl}}/health
+
+### List package definitions
+GET {{baseUrl}}/api/packages?businessId=1
+
+### Purchase package
+POST {{baseUrl}}/api/packages/purchase
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "packageDefinitionId": 1
+}
+
+### List timetable
+GET {{baseUrl}}/api/timetable?businessId=1
+
+### Book an available schedule with seeded package 1
+POST {{baseUrl}}/api/bookings
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "scheduleId": 1,
+  "customerPackageId": 1,
+  "joinWaitlistIfFull": false
+}
+
+### Join the seeded full schedule (customer 6)
+POST {{baseUrl}}/api/waitlist
+Content-Type: application/json
+
+{
+  "customerId": 6,
+  "scheduleId": 3,
+  "customerPackageId": 6
+}
+
+### Cancel seeded booking 1; seeded waitlist entry 1 is promoted
+POST {{baseUrl}}/api/bookings/cancel
+Content-Type: application/json
+
+{
+  "customerId": 2,
+  "bookingId": 1
+}
